@@ -1,5 +1,12 @@
 import { Home as HomeIcon, Search, Library } from 'lucide-react'
-export function Sidebar(){
+import PlaylistList from './PlaylistsList'
+import { Playlists } from '../../types'
+
+type Props ={
+  playlists: Playlists[]
+}
+
+export function Sidebar({playlists}: Props){
     return(
         <aside className='w-64 bg-zinc-950 p-6'>
           <div className='flex items-center gap-2'>
@@ -12,16 +19,7 @@ export function Sidebar(){
             <a href="" className='flex items-center gap-2 text-sm font-semibold text-zinc-200'><Search />検索</a>
             <a href="" className='flex items-center gap-2 text-sm font-semibold text-zinc-200'><Library />マイライブラリ</a>
           </nav>
-          <nav className='mt-10 pt-10 border-t border-zinc-800 flex flex-col gap-3'>
-            <a href="" className='text-sm text-zinc-400 hover:text-zinc-100'>平成ポップヒストリー</a>
-            <a href="" className='text-sm text-zinc-400 hover:text-zinc-100'>This Is 菅田将暉 </a>
-            <a href="" className='text-sm text-zinc-400 hover:text-zinc-100'>まどろみの中で</a>
-            <a href="" className='text-sm text-zinc-400 hover:text-zinc-100'>This Is 米津玄師</a>
-            <a href="" className='text-sm text-zinc-400 hover:text-zinc-100'>ストロボ</a>
-            <a href="" className='text-sm text-zinc-400 hover:text-zinc-100'>YOASOBI「アイドル」</a>
-            <a href="" className='text-sm text-zinc-400 hover:text-zinc-100'>夜に駆ける </a>
-            <a href="" className='text-sm text-zinc-400 hover:text-zinc-100'>たぶん</a>
-          </nav>
+          <PlaylistList playlists={playlists} />
         </aside>
     )
 }
